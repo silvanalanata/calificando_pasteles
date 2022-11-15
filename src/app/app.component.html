@@ -1,0 +1,53 @@
+
+<div class="main">
+
+ <div class="nuevo">
+  <form class="form" [formGroup]="formPastel" (ngSubmit)="nuevopastel()">
+    <h2>Agregar un nuevo pastel:</h2>
+        <label> Nombre Pastel: </label>
+        <input type="text" name="pastel" formControlName="nombre" />
+        <label> Imagen URL: </label>
+        <input type="text" name="imagen" formControlName="imagen" />
+        <input type="submit" value="Crear Pastel" />
+    </form>
+  </div>
+
+
+
+ <div class="allfotos">
+    <h1> Rate my Cakes: </h1>
+
+    <div *ngFor="let pasteles of datos">
+    <!--  <h2> {{pasteles.pastelero}}</h2> -->
+    <div class="calificacion">
+    <button  (click)="getretornarId(pasteles._id)">  <img class = "fotos_pasteles" src="{{pasteles.imagen}}">  </button>
+
+    <form class="form2" [formGroup]="formCalifiacion" (ngSubmit)="nuevaCalificacion(pasteles._id)">
+      <h2>Agregar una nueva calificacion:</h2>
+        <select  name="nota" formControlName="nota">
+          <option value="1">1 Estrellas</option>
+          <option value="2">2 Estrellas</option>
+          <option value="3">3 Estrellas</option>
+          <option value="4">4 Estrellas</option>
+          <option value="5" selected>5 Estrellas</option>
+        </select>
+          <label> comentario: </label>
+          <input type="text" name="comentario" formControlName="comentario" />
+
+          <input type="submit" value="Calificar" />
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+</div>
+
+
+<div *ngIf="verdetalle">
+
+  <app-details *ngIf="datosid" [retornarId]="{datosid, promedio}"></app-details>
+
+  </div>
+

@@ -1,0 +1,17 @@
+<div class="row">
+        <section class="detalle">
+          <h1> Pastel by {{retornarId.datosid.pastelero}} </h1>
+          <h3>Nombre Pastelero: {{retornarId.datosid.pastelero}}</h3>
+          <img class = "fotos_pasteles_detalles" src="{{retornarId.datosid.imagen}}">
+        </section>
+
+        <section >
+          <h3 class="title_cal">calificaciones: </h3>
+          <h3 class="title_cal">Promedio:{{retornarId.promedio}}</h3>
+          <div class= "detalle2" *ngFor="let i of retornarId.datosid.calificaciones">
+            <h3>nota: {{i.nota}}</h3>
+            <h3>comentario: {{i.comentario}}</h3>
+          </div>
+        </section>
+
+  </div>
